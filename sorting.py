@@ -71,16 +71,17 @@ def descending_order(numbers_list):
         j+=1
         k+=1
     return numbers_list
+
 def take_inputs():
     #taking number of inputs
-    n = int(input())
+    n = int(input("Enter the length of the numbers - \n"))
     numbers_list = []
     #taking n inputs
+    print("Enter the numbers - \n", end="")
     for i in range(n):
         numbers = int(input())
         numbers_list.append(numbers)
-    #taking sorting order as an input
-    sort_order = input()
+    sort_order = input("Order of sorting - \n")
     lower_case_sort_order = sort_order.lower()
     if(lower_case_sort_order == "asc"):
         result = ascending_order(numbers_list)
@@ -88,12 +89,15 @@ def take_inputs():
         result = descending_order(numbers_list)
     else : 
         print("Not a valid Sorting Order")
-    print(result)
+    str_result = list(map(str, result))
+    print("Sorted List\n")
+    print(" ".join(str_result))
+    #print(result)
 
-take_inputs()
-print("I hope you are satisfied with the result.To repeat it again, Y or N? N")
-input_yes_or_no = input().lower()
-if(input_yes_or_no == "y"):
+input_yes_or_no = "y"
+while (input_yes_or_no == "y"):
     take_inputs()
+    print("I hope you are satisfied with the result.\nTo repeat it again, Y or N? ", end="")
+    input_yes_or_no = input().lower()
 else:
     print("Thank You")
